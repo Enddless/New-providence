@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New providence</title>
+<link href="css/site.css" rel="stylesheet"/>
+<script src="JQ/jquery.min.js"></script>
+<script src="JQ/jquery-ui.min.js"></script>
+    <!--СКРИПТ jq АНИМИРОВАНИЕ ЛЕВОЙ БОКОВОЙ ПАНЕЛИ МЕНЮ-->
+<script>
+  $(document).ready(function() {
+  $('#menu-icon').click(
+    function() {
+		  $('#slide-menu').stop().animate(
+		    {
+			    left: '150px',
+		    },
+		    100,
+		    'easeInSine'
+		  ); // end animate
+	  }
+  ); // end click
+  $('#close').click(
+    function(){
+      $('#slide-menu').stop().animate(
+        {
+        left: '-380px',
+        },
+        100,
+        'easeOutBounce'
+      ); // end animate
+    }); //end click
+  }); // end ready
+</script>
+    <!-- СКРИПТ НА ПОЯВЛЕНИЕ ТЕКСТА В HEADER-->
+<script>
+  $(document).ready(function(){
+  $('#header-text').animate(
+		{
+			   top:0,
+         opacity: 1
+		},
+		500,
+		function(){
+      $('#header-text2').animate(
+        {
+          top:0,
+          opacity:1
+        },
+        300,
+        'easeInSine'
+      );// end animate2
+    }
+  ); // end animate
+  $('#header-video').animate(
+		{
+			   top:0,
+         opacity: 1
+		},
+		1500,
+		function(){
+      $('#header-iphone').animate(
+        {
+          top:0,
+          opacity:1
+        },
+        300,
+        'easeInSine'
+      );// end animate2
+    }
+  ); // end animate
+  }); // end ready
+</script>
+<!-- СКРИПТ НА ПОЯВЛЕНИЕ ТЕКСТА всего контента-->
+<script>
+  $(document).ready(function(){
+    window.onscroll = function(){
+      var posTop = document.documentElement.scrollTop;
+                //ПОЯВЛЕНИЕ ТЕКСТА В FEATURES
+      if ((posTop >= 200) && (posTop <= 399)) {
+        $('#block-feature').animate(
+          {
+            top:0,
+            opacity:1
+          },
+          1000,
+          'easeInSine'
+        );// end animate
+      };
+                //IPHONE И ТЕКСТА В ip-FEATURES
+      if ((posTop >= 400) && (posTop <= 499)) {
+        $('#ip').animate(
+          {
+            left: '-130px',
+          },
+          2000,
+          'easeInSine'
+        );// end animate
+      };
+                //MAP в MAP-FEATURES
+      if ((posTop >= 500) && (posTop <= 599)) {
+        $('#map').animate(
+          {
+            right: 0,
+          },
+          4000,
+          'easeInSine'
+        );// end animate
+      };
+    };
+  });
+</script>
+<!-- СКРИПТ НА ВЫБОР АКТИВНОГО ПЛАНА-->
+<script>
+  $(document).ready(function(){
+    $('.case .company').click(
+      function(){
+        $(this).addClass('active');
+        $('#price_tables .company').toggleClass('disabled');
+        $('.case .individual').removeClass('active');
+        $('#price_tables .individual').addClass('disabled');
+      }
+    ); // end click1
+    $('.case .individual').click(
+      function(){
+        $(this).addClass('active');
+        $('#price_tables .individual').toggleClass('disabled');
+        $('.case .company').removeClass('active');
+        $('#price_tables .company').addClass('disabled');
+      }
+    ); //end click2
+  }); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		<!--ВЫЛЕТАЮЩЕЕ МЕНЮ СЛЕВА-->
+		<div id="slide-menu">
+			<div class="logo"><img src="images/logo-white.png" alt="">
+        <a href="#" id="close" class="menu-close"><img src="images/close-window.png" width="40px"></a></div>
+			<ul>
+				<li><a href="#">Tour</a></li>
+				<li><a href="#">Features</a></li>
+				<li><a href="#">Pricing</a></li>
+				<li><a href="#">Help</a></li>
+				<li><a href="#">Contacts</a></li>
+				<li><a href="#" class="btn btn-blue"><img src="images/apple-icon.png">Get App</a></li>
+			</ul>
+			<div class="slide-menu-footer">
+				<div class="info">
+					<p>Made with love by <a href="http://getcraftwork.com">Craft Work</a></p>
+					<p>Developed by <a href="http://ruibogasdesign.net/">Rui Bogas</a>
+				</div>
+				<ul class="socials">
+					<li><a href="#"><img src="images/facebook-icon.png"></a></li>
+					<li><a href="#"><img src="images/google-icon.png"></a></li>
+					<li><a href="#"><img src="images/linkedin-icon.png"></a></li>
+					<li><a href="#"><img src="images/twitter-icon.png"></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--ГЛАВНОЕ, ЦЕНТРАЛЬНОЕ МЕНЮ-->
+		<div class="main-menu">
+			<ul class="left">
+				<li><a href="#"><img src="images/menu-icon.png" alt="" id="menu-icon"></a></li>
+				<li><a href="#">Tour</a></li>
+				<li><a href="#">Features</a></li>
+				<li><a href="#">Pricing</a></li>
+			</ul>
+			<ul class="center">
+				<li><div class="logo"><img src="images/logo-white.png" alt=""></div></li>
+			</ul>
+			<ul class="right">
+				<li><a href="#">Help</a></li>
+				<li><a href="#">Contacts</a></li>
+				<li><a href="#" class="btn btn-blue"><img src="images/apple-icon.png">Get App</a></li>
+			</ul>
+		</div>
+	</header>
+	<!--ТЕКСТОВАЯ СЕКЦИЯ HEADER-->
+	<section id="header">
+		<div class="text" >
+			<h1 id="header-text">What happens tomorrow?</h1>
+			<p id="header-text2">The sight of the tumblers restored Bob Sawyer to a degree of equanimity which he had not
+				possessed since his interview with his landlady. His face brightened up, and he began to feel quite convivial.</p>
+			<a id="header-video" href="https://vimeo.com/74220509" class="btn btn-video"> Watch Video</a>
+		</div>
+		<!-- iPhone -->
+		<img id="header-iphone" src="images/iphone.png">
+	</section>
+	<!--СЕКЦИЯ FEATURES-->
+	<section id="features">
+			<div class="block-feature" id="block-feature">
+				<div class="feature" >
+					<img src="images/lock-icon.png">
+					<h3>Real-time all the time</h3>
+					<p>Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.</p>
+					<p>Just then her head struck against the roof of the hall: in fact she was now more than nine feet high,
+						and she at once took up the little golden key and hurried off to the garden door.</p>
+				</div>
+				<div class="feature">
+					<img src="images/clock-icon.png">
+					<h3>Adopt without any obstacles</h3>
+					<p>This sounded a very good reason, and Alice was quite pleased to know it. 'I never thought of that before!' she said.</p>
+					<p>This I have produced as a scantling of Jack’s great eloquence and the force of his reasoning upon such abstruse matters.</p>
+				</div>
+			</div>
+	</section>
+	<!--СЕКЦИЯ IPHONE-FEATURES-->
+	<section id="iphone-feature">
+		<div class="ip" id="ip">
+			<img src="images/iphone-feature.png" >
+		</div>
+		<div class="text-feature">
+			<h3>Your day <br>is protected</h3>
+			<p>There have not been any since we have lived here, said my mother. </p>
+			<p>We thought - Mr. Copperfield thought - it was quite a large rookery; but
+				the nests were very old ones, and the birds have deserted them a long while.</p>
+			<a href="#" class="btn btn-blue">Try to hack us <img src="images/arrow.png"></a>
+			<a href="#" class="btn">Learn more</a>
+		</div>
+	</section>
+	<!--СЕКЦИЯ MAP-FEATURES-->
+	<section id="map-feature">
+		<div class="almost">
+			<h3>We are almost <br> everywhere</h3>
+			<p>Now the races of these two have been for some ages utterly extinct, and besides to discourse any further
+				of them would not be at all to my purpose.</p>
+			<p>Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.</p>
+			<h6>Partners</h6>
+			<img src="images/dropbox-logo.png">
+			<img src="images/evernote-logo.png">
+		</div>
+		<div class="map" id="map">
+			<img src="images/world map.png" width="994px">
+		</div>
+	</section>
+	<!--СЕКЦИЯ IPHONE-SCREENS-->
+	<section id="iphone-screens">
+		<div class="text-screens">
+			<h1>Beautiful Interface</h1>
+			<p><img src="images/line.png"><p>
+			<p>Landing Screen</p>
+		</div>
+		<div>
+      <ul class="images-list">
+        <li><img src="images/img-1.png" alt=""></li>
+        <li><img src="images/img-2.png" alt=""></li>
+        <li class="main-img"><img src="images/main-img.png"></li>
+        <li><img src="images/img-3.png" alt=""></li>
+        <li><img src="images/img-4.png" alt=""></li>
+      </ul>
+    </div>
+	</section>
+	<!--СЕКЦИЯ READY TO BUY-->
+	<section id="ready">
+		<div class="text-ready">
+			<p>NewProvidence</p>
+			<h1>Get it to your smartphone</h1>
+			<form action="">
+				<input type="text" placeholder="e-mail">
+				<a href="#" class="btn btn-green">Send Invite <img src="images/arrow.png"></a>
+			</form>
+			<p>or Download From</p>
+			<a href="#" class="btn btn-black"><img src="images/apple-icon.png"><span>Download on the App Store</span></a>
+		</div>
+	</section>
+	<!--СЕКЦИЯ CUSTOMERS-->
+	<section id="customers">
+		<div class="carousel-wrapper">
+			<span id="target-item-1"></span>
+			<span id="target-item-2"></span>
+			<span id="target-item-3"></span>
+			<div class="carousel-item item-1">
+				<img id="userpick" src="images/user1.jpg" alt="">
+				<h1>New Providence is the great UI kit </h1>
+				<p>“Just then her head struck against the roof of
+				the hall: in fact she was now more than nine feet high, and she at once
+				took up the little golden key and hurried off to the garden door.”</p>
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<p class="customer-name">Cameron Downman</p>
+				<a class="arrow arrow-prev" href="#target-item-3"></a></a>
+				<a class="arrow arrow-next" href="#target-item-2"></a></a>
+			</div>
+			<div class="carousel-item item-2">
+				<img id="userpick" src="images/user2.jpg" alt="">
+				<h1>New Providence is the great UI kit </h1>
+				<p>“Just then her head struck against the roof of
+				the hall: in fact she was now more than nine feet high, and she at once
+				took up the little golden key and hurried off to the garden door.”</p>
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<p class="customer-name">Cameron Downman</p>
+				<a class="arrow arrow-prev" href="#target-item-1"></a></a>
+				<a class="arrow arrow-next" href="#target-item-3"></a></a>
+			</div>
+			<div class="carousel-item item-3">
+				<img id="userpick" src="images/user3.jpg" alt="">
+				<h1>New Providence is the great UI kit </h1>
+				<p>“Just then her head struck against the roof of
+				the hall: in fact she was now more than nine feet high, and she at once
+				took up the little golden key and hurried off to the garden door.”</p>
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<img id="star" src="images/star.png"><img id="star" src="images/star.png">
+				<p class="customer-name">Cameron Downman</p>
+				<a class="arrow arrow-prev" href="#target-item-2"></a></a>
+				<a class="arrow arrow-next" href="#target-item-1"></a></a>
+			</div>
+		</div>
+  </section>
+	<!--СЕКЦИЯ PLAN-->
+	<section id="plan">
+		<div class="plan-block">
+			<div class="text-plan">
+				<h1>Choose your perfect plan</h1>
+				<p>You are</p>
+					<div class="case" id="case">
+						<div class="individual active">Individual</div> <!-- active -->
+						<div class="company">Company</div>
+					</div>
+				<p>Thus much I thought proper to tell you in relation to yourself,
+					and to the trust I reposed in you.</p>
+				<p class="info">Have a bigger team? <a href="#">Let‘s talk</a></p>
+			</div>
+      <div id="price_tables">
+				<div class="individual visible">
+					<div class="price-table">
+						<div class="table-inner starter">
+							<h3>Starter</h3>
+							<span class="price">Free</span>
+							<p class="phrase">Build your schedule<br> every day</p>
+							<ul class="feature-list">
+								<li><img src="images/on-icon.png">Unlimeted events</li>
+								<li><img src="images/on-icon.png">Connect Dropbox & Evernote</li>
+							</ul>
+							<a href="" class="btn btn-blue">Get Started</a>
+						</div>
+					</div>
+					<div class="price-table">
+						<div class="table-inner pro">
+							<h3>Pro</h3>
+							<span class="price">$4,99</span>
+							<p class="phrase">Make you life<br>better</p>
+							<ul class="feature-list">
+								<li><img src="images/on-icon.png">Unlimeted events</li>
+								<li><img src="images/on-icon.png">Connect Dropbox & Evernote</li>
+                <li><img src="images/on-icon.png">Personal Assistant</li>
+							</ul>
+							<a href="" class="btn">Make me a pro</a>
+						</div>
+					</div>
+				</div>
+			</div>
+      <div id="price_tables">
+				<div class="company disabled">
+					<div class="price-table">
+						<div class="table-inner starter">
+							<h3>Starter</h3>
+							<span class="price">$10</span>
+							<p class="phrase">Build your schedule<br> every day</p>
+							<ul class="feature-list">
+								<li><img src="images/on-icon.png">Unlimeted events</li>
+								<li><img src="images/on-icon.png">Connect Dropbox & Evernote</li>
+							</ul>
+							<a href="" class="btn btn-blue">Get Started</a>
+						</div>
+					</div>
+					<div class="price-table">
+						<div class="table-inner pro">
+							<h3>Pro</h3>
+							<span class="price">$20</span>
+							<p class="phrase">Make you life<br>better</p>
+							<ul class="feature-list">
+								<li><img src="images/on-icon.png">Unlimeted events</li>
+								<li><img src="images/on-icon.png">Connect Dropbox & Evernote</li>
+                <li><img src="images/on-icon.png">Personal Assistant</li>
+							</ul>
+							<a href="" class="btn">Make me a pro</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+  <!--СЕКЦИЯ SUBSCRIBE-->
+  <section class="subscribe">
+		<div class="text-subscribe">
+			<h1>Subscribe our newsletters</h1>
+      <form action="">
+        <div class="form-group">
+          <input type="email" placeholder="Email here">
+          <a href="#" class="btn btn-green">Subscribe</a>
+        </div>
+      </form>
+      <p class="promise">We promise to never spam you.</p>
+		</div>
+  </section>
+	<footer>
+		<div class="footer-block">
+			<div class="text-footer">
+				<img src="images/logo-white.png">
+				<p>It was some time before he obtained any answer, and the reply, when
+					made, was unpropitious.</p>
+				<a href="#" class="btn btn-black"><img src="images/apple-icon.png"><p>Download on the <br><span>App Store</span></p></a>
+				<div class="icon">
+					<img src="images/twitter-icon.png">
+					<img src="images/facebook-icon.png">
+					<img src="images/google-icon.png">
+					<img src="images/linkedin-icon.png">
+				</div>
+			</div>
+			<div class="menu1">
+				<h3>Learn More</h3>
+				<ul>
+					<li>How it works?</li>
+					<li>Meeting tools</li>
+					<li>Live striming</li>
+					<li>Contat method</li>
+				</ul>
+			</div>
+			<div class="menu2">
+				<h3>About Us</h3>
+				<ul>
+					<li>About us</li>
+					<li>Features</li>
+					<li>Privacy police</li>
+					<li>Terms & Conditions</li>
+				</ul>
+			</div>
+			<div class="menu3">
+				<h3>Support</h3>
+				<ul>
+					<li>F.A.Q.</li>
+					<li>Contact us</li>
+					<li>Live chat</li>
+					<li>Phone call</li>
+				</ul>
+			</div>
+		</div>
+		<div class="copyrights">
+			<p>For more freebies visit: <a href="http://getcraftwork.com">http://getcraftwork.com</a></p>
+			<span>Made with Love by</span>
+		</div>
+		<img id="footer" src="images/logo1.png">
+	</footer>
+</div>
+</body>
+</html>
